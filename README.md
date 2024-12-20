@@ -86,12 +86,14 @@ To use this package, start by initializing the appropriate class with your data 
 
 ```R
 # For single file analysis
+# file is the average value .csv, the one with no subtitles
 mea_analysis <- MEAnalysis$new("path/to/your/file.csv")
 
 # For batch analysis
 batch_analysis <- BatchMEAnalysis$new(list_of_file_paths)
 
 # For electrode burst analysis
+# file is the electrode_burst_list
 electrode_bursts <- ElectrodeBursts$new("path/to/your/file.csv")
 ```
 
@@ -104,7 +106,7 @@ Then, you can use the various methods provided by each class to analyze your dat
 # Create a treatment averages t-test plot
 plot <- mea_analysis$treatment_averages_t_test_plot(
   "Control",
-  c("Treatment1", "Treatment2"),
+  c("Control", "Treatment1", "Treatment2"),
   "Treatment Averages T-Test Plot"
 )
 # plot is a ggplot object
@@ -126,7 +128,7 @@ plot <- batch_analysis$run_mea_analysis(
 # Generate significance overview
 overview <- batch_analysis$generate_significance_overview(
   "Control",
-  c("Treatment1", "Treatment2"),
+  c("Control", "Treatment1", "Treatment2"),
   c("MeanFiringRate", "BurstFrequency"),
   "Significance Overview"
 )
@@ -139,8 +141,9 @@ overview <- batch_analysis$generate_significance_overview(
 # Create a comparison raster plot
 plot <- electrode_bursts$create_comparison_raster_plot(
   "Control",
-  c("Treatment1", "Treatment2"),
-  "Comparison Raster Plot"
+  c("Control", "Treatment1", "Treatment2"),
+  "Comparison Raster Plot",
+  3
 )
 # plot is a ggpubr object
 ```
