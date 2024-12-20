@@ -78,6 +78,7 @@ Key methods:
      - `control_group`: character - The control group to be included in the comparison
      - `treatments_array`: character vector - An array of treatment names to compare
      - `plot_title`: character - The title of the plot
+     - `num.well`: number - Highest number of well replicates amongst chosen conditions
    - Returns: ggpubr object - A combined raster plot comparing multiple treatments
 
 ## Usage
